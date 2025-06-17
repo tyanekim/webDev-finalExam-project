@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>전화기</title>
+    <style>
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+            background: #f0f0f0;
+            padding: 10px;
+        }
+        nav a {
+            text-decoration: none;
+            color: black;
+        }
+
+        table {
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+
+        td {
+            width: 60px;
+            height: 60px;
+            text-align: center;
+            font-size: 24px;
+            border: 1px solid #ccc;
+            cursor: pointer;
+        }
+
+        input[type="text"] {
+            width: 200px;
+            height: 40px;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        footer {
+            margin-top: 50px;
+            padding: 10px;
+            background-color: #eee;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="english.html">영문 타자기</a></li>
+        <li><a href="korean.html">한글 타자기</a></li>
+        <li><a href="calculator.html">계산기</a></li>
+        <li><a href="phone.html">전화기</a></li>
+    </ul>
+</nav>
+
+<!-- 전화기 입력창 -->
+<h2>전화기</h2>
+<input type="text" id="phoneDisplay" readonly><br>
+
+<!-- 버튼 UI -->
+<table>
+    <tr>
+        <td onclick="press('1')">1</td>
+        <td onclick="press('2')">2</td>
+        <td onclick="press('3')">3</td>
+    </tr>
+    <tr>
+        <td onclick="press('4')">4</td>
+        <td onclick="press('5')">5</td>
+        <td onclick="press('6')">6</td>
+    </tr>
+    <tr>
+        <td onclick="press('7')">7</td>
+        <td onclick="press('8')">8</td>
+        <td onclick="press('9')">9</td>
+    </tr>
+    <tr>
+        <td onclick="press('*')">*</td>
+        <td onclick="press('0')">0</td>
+        <td onclick="press('#')">#</td>
+    </tr>
+    <tr>
+        <td colspan="3" onclick="clearDisplay()">지우기</td>
+    </tr>
+</table>
+
+<footer>
+    <p>소속: 빅데이터과 | 학번: 2302543 | 이름: 김타이엔</p>
+</footer>
+
+<script>
+    // 전화 번호 입력칸임
+    let number = "";
+
+    // 버튼 클릭 -> 숫자 누적 기능!!
+    function press(value) {
+        number += value;
+        document.getElementById("phoneDisplay").value = number;
+    }
+
+    // 지우기 버튼
+    function clearDisplay() {
+        number = "";
+        document.getElementById("phoneDisplay").value = "";
+    }
+</script>
+
+</body>
+</html>
